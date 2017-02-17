@@ -11,5 +11,5 @@ import com.hazelcast.core.DistributedObject;
  */
 public interface Shard extends DistributedObject {
 
-	int update(List<Map<String,Object>> dataList);
+	int update(List<Map<String,Object>> dataList, int amount);
 }

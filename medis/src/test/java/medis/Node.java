@@ -25,6 +25,7 @@ public class Node {
 		HazelcastInstance[] instances = new HazelcastInstance[NUM_OF_NODES];
 
 		Config config = new Config();
+		
 		ServiceConfig service = new ServiceConfig();
 		service.setName(ShardService.NAME).setEnabled(true).setClassName(ShardService.class.getName());
 		config.getServicesConfig().addServiceConfig(service);
@@ -37,8 +38,9 @@ public class Node {
 			shards[i] = instances[0].getDistributedObject(ShardService.NAME, "shard-" + i);
 		}
 
+		int k=0;
 		for (Shard shard : shards) {
-			shard.update(null);
+			System.out.println("shard-"+ (k++) + " result:" + shard.update(null, 1));
 		}
 
 		System.out.println("Finished");
@@ -46,9 +48,15 @@ public class Node {
 		for (int i = instances.length - 1; i > 1; i--) {
 			instances[i].shutdown();
 		}
+		
+		shards = new Shard[4];
+		for (int i = 0; i < shards.length; i++) {
+			shards[i] = instances[0].getDistributedObject(ShardService.NAME, "shard-" + i);
+		}
 
+		k=0;
 		for (Shard shard : shards) {
-			shard.update(null);
+			System.out.println("shard-"+ (k++) + " result:" + shard.update(null, 1));
 		}
 
 		Thread.sleep(10000);

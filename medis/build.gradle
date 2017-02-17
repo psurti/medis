@@ -24,6 +24,9 @@ dependencies {
     compile 'org.apache.lucene:lucene-core:6.4.1'
 	compile 'org.apache.lucene:lucene-analyzers-common:6.4.1' 
 	compile 'org.apache.lucene:lucene-queryparser:6.4.1' 
+	compile 'org.elasticsearch:elasticsearch:5.2.0'
+	compile 'org.elasticsearch.client:transport:5.2.0'
+	compile 'org.apache.logging.log4j:log4j-core:2.7'
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }

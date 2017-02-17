@@ -30,10 +30,10 @@ public class ShardProxy extends AbstractDistributedObject<ShardService> implemen
 	}
 
 	@Override
-	public int update(List<Map<String, Object>> dataList) {
+	public int update(List<Map<String, Object>> dataList, int amount) {
 		System.out.println( "UpdateOp " + Thread.currentThread() + " " + getNodeEngine().getLocalMember());
 		NodeEngine nodeEngine = getNodeEngine();
-        ShardOperation operation = new ShardOperation(name, 100);
+        ShardOperation operation = new ShardOperation(name, amount);
         int partitionId = nodeEngine.getPartitionService().getPartitionId(name);
         InvocationBuilder builder = nodeEngine.getOperationService()
                 .createInvocationBuilder(ShardService.NAME, operation, partitionId);
