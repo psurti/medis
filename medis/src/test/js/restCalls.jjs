@@ -9,12 +9,21 @@ load("../../../bin/com/medis/jjs/rest.js");
  */
 print("Arguments: " + arguments);
 /**
+ * Re-usable response
+ */
+var resp;
+/**
  * Get IP Address Test
  */
-var resp = REST.execFile("restData/GetIP.json");
+print("\nGetIP:");
+resp = REST.execFile("restData/GetIP.json");
 print(JSON.stringify(resp));
 print(resp.ip);
 /**
- * 
+ * Get HTTP Headers Test
  * 
  */
+print("\nGetHeaders:")
+resp = REST.execFile("restData/GetHeaders.json");
+print(JSON.stringify(resp));
+print(resp["Content-Length"]);
