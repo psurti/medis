@@ -1,0 +1,8 @@
+{
+	"url":"http://ip.jsontest.com?q=test",
+	"method":"GET",
+	"body": {
+		"key1":"val1",
+		"key2":"val2"
+	}
+}

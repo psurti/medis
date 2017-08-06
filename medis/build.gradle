@@ -8,12 +8,13 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+//apply plugin: 'org.springframework.boot'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    jcenter() 
 }
 
 dependencies {
@@ -24,10 +25,32 @@ dependencies {
     compile 'org.apache.lucene:lucene-core:6.4.1'
 	compile 'org.apache.lucene:lucene-analyzers-common:6.4.1' 
 	compile 'org.apache.lucene:lucene-queryparser:6.4.1' 
-	compile 'org.elasticsearch:elasticsearch:5.2.0'
-	compile 'org.elasticsearch.client:transport:5.2.0'
+	compile 'org.elasticsearch:elasticsearch:5.5.0'
+	compile 'org.elasticsearch.client:transport:5.5.0'
 	compile 'org.apache.logging.log4j:log4j-core:2.7'
+	compile 'org.apache.derby:derby:10.13.1.1'
+	compile 'org.apache.camel:camel-core:2.18.2'
+	compile group: 'org.apache.camel', name: 'camel-csv', version: '2.18.2'
+	compile 'javax.jms:jms:1.1'
+	compile 'org.apache.activemq:activemq-core:5.7.0'
+	compile group: 'org.apache.camel', name: 'camel-jms', version: '2.18.2'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
+    compile 'org.springframework.integration:spring-integration-core:4.3.8.RELEASE'
+    compile 'org.deeplearning4j:deeplearning4j-core:0.7.2'
+    compile group: 'org.antlr', name: 'antlr4', version: '4.5.3'
+    compile group: 'org.apache.kafka', name: 'kafka_2.10', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'connect-runtime', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'connect-api', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'connect-file', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'connect-json', version: '0.10.2.1'
+    //compile group: 'org.apache.kafka', name: 'connect-tools', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'connect-transforms', version: '0.10.2.1'
+    compile group: 'org.apache.kafka', name: 'kafka-streams', version: '0.10.2.1'
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+}
+configurations.all {
+   exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 }
 

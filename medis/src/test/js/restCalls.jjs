@@ -1,0 +1,20 @@
+#!jjs -scripting
+
+/**
+ * Load REST JS Library
+ */
+load("../../../bin/com/medis/jjs/rest.js");
+/**
+ * Display any script arguments
+ */
+print("Arguments: " + arguments);
+/**
+ * Get IP Address Test
+ */
+var resp = REST.execFile("restData/GetIP.json");
+print(JSON.stringify(resp));
+print(resp.ip);
+/**
+ * 
+ * 
+ */
