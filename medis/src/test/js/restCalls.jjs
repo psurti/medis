@@ -21,9 +21,18 @@ print(JSON.stringify(resp));
 print(resp.ip);
 /**
  * Get HTTP Headers Test
- * 
  */
 print("\nGetHeaders:")
 resp = REST.execFile("restData/GetHeaders.json");
 print(JSON.stringify(resp));
 print(resp["Content-Length"]);
+/**
+ * Get Computer Network Interfaces Name
+ */
+print("\nGetNetworkInterfaceNames:")
+resp = REST.execFile("restData/GetNetworkInterfacesNames.json");
+print(JSON.stringify(resp));
+print("Result List:");
+for( var idx in resp ) {
+	print( resp[idx] );
+}

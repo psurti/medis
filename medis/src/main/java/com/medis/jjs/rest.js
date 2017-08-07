@@ -45,10 +45,11 @@ function rest() {
 						buf += line;
 					}
 				} finally {
-					if (reader)
-						reader.close();
+		
 					if (conn)
 						conn.disconnect();
+					if (reader)
+						reader.close();
 				}
 				
 				return buf;
