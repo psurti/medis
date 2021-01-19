@@ -23,4 +23,4 @@ These are loaded from the classpath at runtime. However, to override the values 
 a new configuration file on the classpath for the desired environment. For example, './config/dev/environment.properties'
 and any settings in that file will get added to, or override settings embedded in the jar file.
 
-Thanks!
+Thanks!!
